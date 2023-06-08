@@ -1,8 +1,8 @@
 import { Col, Row } from "react-bootstrap";
 export const Newsletter = () => {
   return (
-      <Row className="my-sm-">
-          <Row className="newsletter-bx">
+      <Row >
+          <Row className="newsletter-bx mx-auto">
             <Col  lg={6}  md={12} className="text-center mb-3" >
               <h3>see my projects at once <br/> & leave here your email </h3>
             </Col>
