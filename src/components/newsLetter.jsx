@@ -1,23 +1,16 @@
 import { Col, Row } from "react-bootstrap";
-
 export const Newsletter = () => {
   return (
-      <Col lg={12}>
-        <div className="newsletter-bx wow slideInUp">
-          <Row>
-            <Col  md={6}  sm={12} >
-              <h3>see my projects at once  & leave here your email </h3>
+          <Row className="newsletter-bx">
+            <Col  lg={6}  md={12} className="text-center mb-3" >
+              <h3>see my projects at once <br/> & leave here your email </h3>
             </Col>
-            <Col md={6}  sm={12}>
-              <form >
-                <div className="new-email-bx">
+            <Col lg={6}  md={12}>
+                <div className="new-email-bx d-flex align-item-center">
                   <input  type="email"  placeholder="Email Address" />
-                  <button type="submit" onClick={(e) => e.preventDefault()} >Submit</button>
+                  <button >Submit</button>
                 </div>
-              </form>
             </Col>
           </Row>
-        </div>
-      </Col>
   )
 }

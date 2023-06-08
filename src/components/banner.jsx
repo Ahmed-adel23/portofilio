@@ -9,8 +9,7 @@ export const Banner = () => {
   const text = useRef(null);
   useEffect(() => {
     const typed = new Typed(text.current, {
-      strings: ["Frontend Developer", "Backend Developer", "Fullstack Developer"], // Strings to display
-      // Speed settings, try diffrent values untill you get good results
+      strings: ["Frontend Developer", "Backend Developer", "Fullstack Developer"],
       startDelay: 300,
       typeSpeed: 150,
       backSpeed: 200,
@@ -19,7 +18,6 @@ export const Banner = () => {
       loop: true,
       showCursor: true,
         });
-    // Destropying
     return () => {
       typed.destroy();
     };
@@ -27,12 +25,11 @@ export const Banner = () => {
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="aligh-items-center">
+        <Row >
           <Col xs={12} md={6} xl={7} >
-            
               <div className= "animate__animated animate__fadeInLeft">
                 <span  className="tagline animate__animated animate__fadeInDownBig">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Ahmed Adel `} <span ref={text} className="txt-rotate"></span></h1>
+                <h1>Hi! I&apos;m Ahmed Adel  <span ref={text} className="text-rotate"></span></h1>
                   <p className="animate__animated animate__fadeInUpBig">i have a lot of experince in web development </p>
                   <button className="animate__animated animate__fadeInUpBig"> Let’s Connect <ArrowRightCircle/> </button>
               </div>

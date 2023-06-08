@@ -46,8 +46,8 @@ export const Projects = () => {
               <div className="animate__animated animate__fadeIn">
                 <h2>Projects</h2>
                 <p>my name is ahmed ,i am frontend developer .you can see all projects i had do</p>
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
+                <Tab.Container id="project-tabs" defaultActiveKey="first">
+                  <Nav variant="pills" className="nav-pills mb-5" id="pills-tab">
                     <Nav.Item>
                       <Nav.Link eventKey="first">Tab 1</Nav.Link>
                     </Nav.Item>

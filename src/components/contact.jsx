@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../assets/img/contact-img.svg";
+import contactImg from "../assets/img/contact.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 export const Contact = () => {
@@ -16,12 +16,11 @@ export const Contact = () => {
           <Col size={12} md={6}>
             <TrackVisibility >
               {({ isVisible }) =>
-                <img className={isVisible ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact Us"/>
+                <img className={isVisible ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact"/>
               }
             </TrackVisibility>
           </Col>
           <Col size={12} md={6}>
-
                 <div className="animate__animated animate__fadeIn">
                 <h2>Get In Touch</h2>
                 <form onSubmit={Submit}>
@@ -39,7 +38,7 @@ export const Contact = () => {
                       <input type="tel"  placeholder="Phone No." />
                     </Col>
                     <Col size={12} className="px-1">
-                      <textarea rows="6"  placeholder="Message" ></textarea>
+                      <textarea rows="7"  placeholder="Message" ></textarea>
                       <button type="submit"><span>{buttonText}</span></button>
                     </Col>
                   </Row>

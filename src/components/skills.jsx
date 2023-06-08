@@ -1,7 +1,8 @@
-import meter1 from "../assets/img/meter4.svg";
-import meter2 from "../assets/img/meter5.svg";
-import meter3 from "../assets/img/meter6.svg";
+import rounded1 from "../assets/img/meter4.svg";
+import rounded2 from "../assets/img/meter5.svg";
+import rounded3 from "../assets/img/meter6.svg";
 import Carousel from 'react-multi-carousel';
+import { Container , Col , Row } from "react-bootstrap";
 import 'react-multi-carousel/lib/styles.css';
 import 'animate.css';
 export const Skills = () => {
@@ -22,34 +23,30 @@ export const Skills = () => {
 
   return (
     <section className="skill " id="skills" >
-        <div className="container">
-            <div className= "animate__animated animate__zoomIn animate__delay-1s  row">
-                <div className="col-12">
-                    <div className="skill-bx wow zoomIn ">
+        <Container>
+            <Row className= "animate__animated animate__zoomIn animate__delay-.5s  ">
+                <Col size={12} >
+                    <div className="skill-bx">
                         <h2>Skills</h2>
                         <p>you can see my skills here</p>
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                             <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
+                                <img src={rounded1} alt="Image" />
+                                <h4>Web Development</h4>
                             </div>
                             <div className="item">
-                                <img src={meter2} alt="Image" />
-                                <h5>Brand Identity</h5>
+                                <img src={rounded2} alt="Image" />
+                                <h4>Brand Identity</h4>
                             </div>
                             <div className="item">
-                                <img src={meter3} alt="Image" />
-                                <h5>Logo Design</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
+                                <img src={rounded3} alt="Image" />
+                                <h4>Logo Design</h4>
                             </div>
                         </Carousel>
                     </div>
-                </div>
-            </div>
-          </div>
+                </Col>
+            </Row>
+          </Container>
     </section>
   )
 }
