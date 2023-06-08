@@ -29,20 +29,18 @@ export const Banner = () => {
       <Container>
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={7} >
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "" : ""}>
-                <span  className="tagline">Welcome to my Portfolio</span>
+            
+              <div className= "animate__animated animate__fadeInLeft">
+                <span  className="tagline animate__animated animate__fadeInDownBig">Welcome to my Portfolio</span>
                 <h1>{`Hi! I'm Ahmed Adel `} <span ref={text} className="txt-rotate"></span></h1>
-                  <p>i have a lot of experince in web development </p>
-                  <button> Let’s Connect <ArrowRightCircle/> </button>
-              </div>}
-            </TrackVisibility>
+                  <p className="animate__animated animate__fadeInUpBig">i have a lot of experince in web development </p>
+                  <button className="animate__animated animate__fadeInUpBig"> Let’s Connect <ArrowRightCircle/> </button>
+              </div>
           </Col>
           <Col xs={12} md={6} xl={5}>
             <TrackVisibility>
               {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
+                <div className={isVisible ? "animate__animated animate__zoomInDown" : ""}>
                   <img src={headerImg} alt="Header Img"/>
                 </div>}
             </TrackVisibility>

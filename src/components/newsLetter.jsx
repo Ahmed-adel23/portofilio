@@ -5,10 +5,10 @@ export const Newsletter = () => {
       <Col lg={12}>
         <div className="newsletter-bx wow slideInUp">
           <Row>
-            <Col lg={12} md={6} xl={5}>
-              <h3>see my projects at once <br></br> & leave here your email </h3>
+            <Col  md={6}  sm={12} >
+              <h3>see my projects at once  & leave here your email </h3>
             </Col>
-            <Col md={6} xl={7}>
+            <Col md={6}  sm={12}>
               <form >
                 <div className="new-email-bx">
                   <input  type="email"  placeholder="Email Address" />

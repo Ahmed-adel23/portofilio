@@ -58,41 +58,43 @@ input:focus, textarea:focus, select:focus {
 		padding: 0 150px;
 	}
 }
+
 /************ Navbar Css ************/
 nav.navbar {
   padding: 18px 0;
-  position: fixed;
   width: 100%;
   top: 0;
   z-index: 99;
   transition:  0.35s ease-in-out;
 }
 nav.navbar.scrolled {
-  padding: 0px 0;
+  padding: 0;
   background-color: #00041b;
 }
 nav.navbar a.navbar-brand {
-    width: 9%;
+    width: 13%;
 }
-nav.navbar .navbar-nav .nav-link.navbar-link {
+nav.navbar .navbar-nav .navbar-link {
   color: #fff !important;
   letter-spacing: 0.8px;
-  padding: 0 25px;
+  padding: 5px 25px;
   font-size: 18px;
   opacity: 0.75;
+  text-decoration: none;
+  cursor: pointer;
 }
-nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
-nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+nav.navbar .navbar-nav .navbar-link:hover,
+nav.navbar .navbar-nav .navbar-link.active {
     opacity: 1;
     color: var(--main-color) !important;
 }
-span.navbar-text {
+.navbar-text {
     display: flex;
     align-items: center;
     
 }
 .social-icon {
-    display: inline-block;
+    display: inline-flex;
     margin-left: 1rem;
 }
 .social-icon a {
@@ -124,10 +126,6 @@ span.navbar-text {
 	z-index: 1;
 	transition: 0.3s ease-in-out;
 }
-.social-icon a:hover img {
-    color: #000 !important;
-  /* filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%); */
-}
 .navbar-text button {
   font-weight: 700;
   color: #fff;
@@ -140,7 +138,8 @@ span.navbar-text {
 	transition: 0.3s ease-in-out;
 }
 .navbar-text button span {
-  z-index: 1;
+  display: inline-block;
+  width: max-content;
 }
 .navbar-text button::before {
   content: "";
@@ -163,22 +162,27 @@ span.navbar-text {
 }
 nav.navbar .navbar-toggler:active,
 nav.navbar .navbar-toggler:focus {
-	outline: none;
-    box-shadow: none;
+	outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
 }
-nav.navbar .navbar-toggler-icon {
+.nav-toggleer{
+  color: whitesmoke !important;
+  width: max-content !important;
+  height: max-content !important;
+}
+/* nav.navbar .navbar-toggler-icon {
   width: 24px;
   height: 17px;
-  background-image: none;
   position: relative;
   border-bottom: 2px solid #fff;
-  transition: all 300ms linear;
+  transition: all .3s ;
   top: -2px;
 }
 nav.navbar .navbar-toggler-icon:focus {
 	border-bottom: 2px solid #fff;
-}
-nav.navbar .navbar-toggler-icon:after,
+} */
+/* nav.navbar .navbar-toggler-icon:after,
 nav.navbar .navbar-toggler-icon:before {
 	width: 24px;
 	position: absolute;
@@ -188,25 +192,12 @@ nav.navbar .navbar-toggler-icon:before {
 	left: 0;
 	content: '';
 	z-index: 2;
-	transition: all 300ms linear;
+	transition: all .3s ;
 }
 nav.navbar .navbar-toggler-icon:after {
 	top: 8px;
 }
-nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
-	transform: rotate(45deg);
-	background-color: #fff;
-	height: 2px;
-}
-nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
-	transform: translateY(8px) rotate(-45deg);
-	background-color: #fff;
-	height: 2px;
-}
-nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-	border-color: transparent;
-}
-
+  */
 /************ Banner Css ************/
 .banner {
   margin-top: 0;
@@ -529,10 +520,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Footer Css ************/
 .footer {
   padding: 0 0 10px 0;
-  background-color: #000 ;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: #000311 ;
   text-transform: capitalize;
   z-index: 4;
 position: relative;
@@ -558,6 +546,7 @@ position: relative;
   z-index: 0;
   display: flex;
   align-items: center;
+  width: 100% !important;
 }
 .new-email-bx::before {
   content: "";
@@ -591,7 +580,11 @@ position: relative;
 }
 .new-email-bx button {
   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  padding: 20px 65px;
+  /* padding: 20px 65px; */
+  min-width: 8rem ;
+  min-height: 3rem ;
+  width: 17rem ;
+  height: 4rem ;
   color: #fff;
   font-weight: 500;
   letter-spacing: 0.5px;
