@@ -544,6 +544,9 @@ nav.navbar .navbar-toggler {
   border-radius: 18px;
   font-size: 20px;
 }
+.new-email button:hover{
+  background: linear-gradient(90deg, #4A2FBD , #218c96 );
+}
 .footer img {
   width: 28%;
   

@@ -14,6 +14,11 @@ export const Projects = () => {
     {
       title: "Business Startup",
       description: "Design & Development",
+      imgUrl: projImg3,
+    },
+    {
+      title: "Business Startup",
+      description: "Design & Development",
       imgUrl: projImg2,
     },
     {
@@ -30,11 +35,6 @@ export const Projects = () => {
       title: "Business Startup",
       description: "Design & Development",
       imgUrl: projImg2,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
     },
   ];
 
@@ -58,27 +58,27 @@ export const Projects = () => {
                       <Nav.Link eventKey="third">Tab 3</Nav.Link>
                     </Nav.Item>
                   </Nav>
-                  <Tab.Content  className="animate__animated animate__slideInUp">
-                    <Tab.Pane eventKey="first">
-                      <Row>
-                        {
-                          projects.map((project, index) => {
-                            return (
-                                <ProjectCard
-                                key = {index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="second">
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                      <p>my name is ahmed ,i am frontend developer .you can contact me in this form</p>
-                    </Tab.Pane>
-                  </Tab.Content>
+                      <Tab.Content  className= "animate__animated animate__slideInUp" >
+                        <Tab.Pane eventKey="first">
+                          <Row>
+                            {
+                              projects.map((project, index) => {
+                                return (
+                                    <ProjectCard
+                                    key = {index}
+                                    {...project}
+                                    />
+                                )
+                              })
+                            }
+                          </Row>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="second">
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="third">
+                          <p>my name is ahmed ,i am frontend developer .you can contact me in this form</p>
+                        </Tab.Pane>
+                      </Tab.Content> 
                 </Tab.Container>
               </div>
           </Col>
