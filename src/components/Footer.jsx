@@ -3,14 +3,14 @@ import logo  from '../assets/img/logo.svg'
 import footerIcon1 from "../assets/img/LinkedIn.svg";
 import footerIcon2 from "../assets/img/Facebook.svg";
 import footerIcon3 from "../assets/img/Instagram.svg";
-import { Newsletter } from './newsLetter';
+import { SubmitEmail } from './SubmitEmail';
 export const Footer = () => {
   return (
     <footer className="footer">
       <Container>
         <Row className="align-items-center">
           <Col lg={12}>
-            <Newsletter/>
+            <SubmitEmail/>
           </Col>
           <Col lg={6} md={12} sm={12} className="text-center mb-2 text-sm-start">
               <img src={logo} alt="Logo"/>

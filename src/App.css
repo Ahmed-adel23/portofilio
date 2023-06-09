@@ -483,20 +483,20 @@ nav.navbar .navbar-toggler {
   text-transform: capitalize;
   z-index: 10;
 }
-.newsletter-bx {
+.Submit-Email {
   background: #FFFFFF;
   border-radius: 55px;
   color: #121212;
-  padding: 85px 125px;
-  margin-bottom: 80px;
-  margin-top: -122px !important;
+  padding: 85px 0;
+  margin-bottom: 75px;
+  margin-top:-120px  !important;
 }
-.newsletter-bx h3 {
+.Submit-Email h3 {
   font-weight: 700;
   letter-spacing: 0.5px;
   line-height: 1.2em;
 }
-.new-email-bx {
+.new-email {
   background: #fff;
   padding: 5px;
   border-radius: 20px;
@@ -504,7 +504,7 @@ nav.navbar .navbar-toggler {
   z-index: 0;
   min-width: 100% !important;
 }
-.new-email-bx::before {
+.new-email::before {
   content: "";
   background: linear-gradient(90.21deg, #218c96, #4A2FBD 111.58%);
   border-radius: 20px;
@@ -515,7 +515,7 @@ nav.navbar .navbar-toggler {
   bottom: -1px;
   right: -1px;
 }
-.new-email-bx::after {
+.new-email::after {
   content: "";
   background: #fff;
   border-radius: 20px;
@@ -526,7 +526,7 @@ nav.navbar .navbar-toggler {
   bottom: 0;
   right: 0;
 }
-.new-email-bx input {
+.new-email input {
   width: 100%;
   color: #121212;
   font-weight: 500;
@@ -534,11 +534,8 @@ nav.navbar .navbar-toggler {
   border: 0;
   padding: 0 15px;
 }
-.new-email-bx button {
-  background: linear-gradient(90.21deg, #218c96, #4A2FBD 111.58%);
-  /* padding: 20px 65px; */
-  min-width: 8rem ;
-  min-height: 3rem ;
+.new-email button {
+  background: linear-gradient(90deg, #218c96, #4A2FBD );
   width: 17rem ;
   height: 4rem ;
   color: #fff;
