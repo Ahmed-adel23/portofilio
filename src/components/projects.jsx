@@ -1,6 +1,6 @@
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
+import projImg1 from "../assets/img/project1.jpg";
+import projImg2 from "../assets/img/project2.jpg";
+import projImg3 from "../assets/img/project3.jpg";
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import 'animate.css';
 import { ProjectCard } from './Project-Card';
