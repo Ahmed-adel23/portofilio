@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './porto.css';
+import './PremiumModal.css';
 import { MdHome, MdPerson, MdCode, MdSchool, MdContactMail } from 'react-icons/md';
 import { FaWhatsapp } from 'react-icons/fa';
 import { Container, Row, Col, Modal } from 'react-bootstrap';
@@ -413,7 +414,7 @@ const App = () => {
             </Col>
 
             {/* --- RIGHT CONTENT: The Holographic Profile --- */}
-            <Col lg={5} className="d-none d-lg-block" style={{ position: 'relative' }}>
+            <Col lg={5} className="hero-profile-col" style={{ position: 'relative' }}>
               {/* Floating Elements (Background) */}
               <div 
                 style={{
@@ -1124,134 +1125,142 @@ const App = () => {
         </Container>
       </section>
 
-      {/* --- PROJECT MODAL: Cinematic Case Study (Modern Premium Design) --- */}
-      <Modal show={showModal} onHide={() => setShowModal(false)} centered size="xl" contentClassName="premium-modal-content" dialogClassName="modal-dialog-custom">
-        <div className="project-modal-wrapper">
-          {/* Close Button */}
-          <button className="modal-close-btn" onClick={() => setShowModal(false)}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      {/* PROJECT MODAL - PREMIUM IMMERSIVE DESIGN */}
+      <Modal show={showModal} onHide={() => setShowModal(false)} centered size="xl" dialogClassName="premium-modal-dialog" contentClassName="premium-modal-content">
+        <div className="glass-container">
+          {/* Floating Close Button */}
+          <button className="close-trigger" onClick={() => setShowModal(false)}>
+            <span className="sr-only">Close modal</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
-          
-          {/* HERO SECTION */}
+
+          {/* MAIN LAYOUT GRID */}
           {selectedProject && (
-            <>
-              <div className="modal-hero">
-                {/* Video or Image */}
-                {selectedProject.video ? (
-                  <div className="video-container">
-                    <VideoPlayer src={selectedProject.video} />
-                    <div className="media-badge">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <polygon points="23 7 16 12 23 17 23 7" />
-                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
-                      </svg>
-                      Video Demo
+            <div className="pm-layout">
+              {/* LEFT SECTION: IMMERSIVE MEDIA */}
+              <div className="pm-media-section">
+                <div className="media-wrapper">
+                  {selectedProject.video ? (
+                    <div className="video-responsive">
+                      <VideoPlayer src={selectedProject.video} />
                     </div>
+                  ) : selectedProject.images?.length > 0 ? (
+                    <>
+                      <div className="image-stage">
+                        <img 
+                          src={selectedProject.images[currentImageIndex]} 
+                          alt={`${selectedProject.title} - Carousel slide ${currentImageIndex + 1}`}
+                          className="carousel-image"
+                        />
+                        <div className="image-overlay-gradient"></div>
+                      </div>
+                      
+                      {/* Modern Pagination Controls */}
+                      {selectedProject.images.length > 1 && (
+                        <div className="media-controls">
+                          <button 
+                            className="nav-arrow left" 
+                            onClick={() => setCurrentImageIndex((prev) => (prev === 0 ? selectedProject.images.length - 1 : prev - 1))}
+                            aria-label="Previous image"
+                          >
+                            ←
+                          </button>
+                          <div className="dots-indicator">
+                            {selectedProject.images.map((_, idx) => (
+                              <span 
+                                key={idx} 
+                                className={`dot ${idx === currentImageIndex ? 'active' : ''}`}
+                                onClick={() => setCurrentImageIndex(idx)}
+                                role="button"
+                                tabIndex="0"
+                                aria-label={`Go to image ${idx + 1}`}
+                              />
+                            ))}
+                          </div>
+                          <button 
+                            className="nav-arrow right" 
+                            onClick={() => setCurrentImageIndex((prev) => (prev === selectedProject.images.length - 1 ? 0 : prev + 1))}
+                            aria-label="Next image"
+                          >
+                            →
+                          </button>
+                        </div>
+                      )}
+                    </>
+                  ) : null}
+                  
+                  {/* Category Badge */}
+                  <div className="category-pill">
+                    {selectedProject.video ? '🎥 Computer Vision' : '🌐 Web Development'}
                   </div>
-                ) : (
-                  <>
-                    {selectedProject.images?.length > 0 && (
-                      <>
-                        <img src={selectedProject.images[currentImageIndex]} alt={selectedProject.title} className="hero-media" />
-                        
-                        {/* Carousel Controls */}
-                        {selectedProject.images.length > 1 && (
-                          <>
-                            <button className="carousel-btn left" onClick={() => setCurrentImageIndex((prev) => (prev === 0 ? selectedProject.images.length - 1 : prev - 1))}>
-                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <polyline points="15 18 9 12 15 6" />
-                              </svg>
-                            </button>
-                            <button className="carousel-btn right" onClick={() => setCurrentImageIndex((prev) => (prev === selectedProject.images.length - 1 ? 0 : prev + 1))}>
-                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <polyline points="9 18 15 12 9 6" />
-                              </svg>
-                            </button>
-                            <div className="carousel-counter">
-                              {currentImageIndex + 1} / {selectedProject.images.length}
-                            </div>
-                          </>
-                        )}
-                      </>
-                    )}
-                  </>
-                )}
-                
-                <div className="hero-overlay" />
-                <span className="hero-category-badge">
-                  {selectedProject.video ? 'Computer Vision' : 'Web Development'}
-                </span>
+                </div>
               </div>
 
-              {/* CONTENT BODY */}
-              <div className="modal-body-content">
-                <div className="modal-grid">
-                  {/* Main Column */}
-                  <div className="modal-main">
-                    <h2 className="project-headline">{selectedProject.title}</h2>
-                    <p className="project-description">{selectedProject.desc}</p>
-                    
-                    {/* Features Box */}
-                    <div className="features-box">
-                      <h5 className="section-label">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                        Key Features
-                      </h5>
-                      <ul className="features-list">
+              {/* RIGHT SECTION: CONTENT SCROLL */}
+              <div className="pm-content-section">
+                <div className="content-inner">
+                  {/* Header */}
+                  <header className="pm-header">
+                    <h2 className="pm-title">{selectedProject.title}</h2>
+                    <p className="pm-desc">{selectedProject.desc}</p>
+                  </header>
+
+                  <hr className="pm-divider" />
+
+                  {/* Details Grid */}
+                  <div className="pm-grid-details">
+                    {/* Key Features */}
+                    <div className="detail-block">
+                      <h4 className="block-label">✨ Key Features</h4>
+                      <ul className="feature-grid">
                         {['Responsive Design', 'Real-time Processing', 'Secure Architecture', 'Performance Optimized'].map((feat, i) => (
-                          <li key={i} className="feature-item">
-                            <span className="dot" /> {feat}
+                          <li key={i} className="feature-chip">
+                            <svg className="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            {feat}
                           </li>
                         ))}
                       </ul>
                     </div>
-                  </div>
 
-                  {/* Sidebar Column */}
-                  <div className="modal-sidebar">
-                    {/* Tech Stack */}
-                    <div className="sidebar-group">
-                      <h5 className="section-label">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" />
-                        </svg>
-                        Technologies
-                      </h5>
-                      <div className="tech-cloud">
+                    {/* Technology Stack */}
+                    <div className="detail-block">
+                      <h4 className="block-label">⚙️ Technology Stack</h4>
+                      <div className="tech-flow">
                         {selectedProject.tech?.map((t, i) => (
-                          <span key={i} className="tech-chip">{t}</span>
+                          <span key={i} className="tech-badge">{t}</span>
                         ))}
                       </div>
                     </div>
+                  </div>
 
-                    {/* Action Buttons */}
-                    <div className="sidebar-actions">
-                      {selectedProject.link && (
-                        <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="btn-modal-primary">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                          </svg>
-                          Visit Demo
-                        </a>
-                      )}
-                      <button className="btn-modal-secondary">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V21" />
-                        </svg>
-                        View Source
-                      </button>
-                    </div>
+                  {/* Action Buttons */}
+                  <div className="pm-actions">
+                    {selectedProject.link && (
+                      <a 
+                        href={selectedProject.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="btn-premium primary"
+                      >
+                        Visit Live Project
+                        <span className="arrow-icon">↗</span>
+                      </a>
+                    )}
+                    <button className="btn-premium secondary">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V21" />
+                      </svg>
+                      View Source Code
+                    </button>
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           )}
         </div>
       </Modal>
